@@ -27,12 +27,19 @@
         </activity>
 
         <service
-            android:name=".MusicService"
-            android:exported="true">
+            android:name=".MyMediaLibraryService"
+            android:exported="true"
+            android:foregroundServiceType="mediaPlayback"
+            android:permission="Public">
             <intent-filter>
-                <action android:name="android.media.browse.MediaBrowserService" />
+                <action android:name="androidx.media3.session.MediaLibraryService" />
             </intent-filter>
         </service>
+
+        <!-- Для Android Auto -->
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
 
         <meta-data
             android:name="com.google.android.gms.car.application"
